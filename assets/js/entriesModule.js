@@ -21,6 +21,7 @@ var entriesModule = (function(){
     render(entries[i]);
   }
 
+
   // Render the new entry to the page
   function render(object) {
 
