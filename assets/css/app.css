@@ -1,0 +1,161 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-image: linear-gradient(260deg, #fe8c00 0%, #f83600 100%);
+  background-attachment: fixed;
+  font-family: 'helvetica neue', sans-serif;
+}
+
+.container {
+  margin: 50px auto;
+  min-height: 500px;
+  width: 350px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 1em;
+  /*overflow-y: hidden;
+  overflow-x: hidden;*/
+}
+/*.container:hover {
+  overflow-y: scroll;
+}*/
+
+/* Scroll Bar */
+/*::-webkit-scrollbar {
+    width: 10px;
+}*/
+
+/*::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.3);
+}*/
+
+/*::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.5);
+}*/
+
+.entry-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.food-label, .food-select, button {
+  padding: 0.5em;
+  border: 0;
+  height: 40px;
+}
+
+.food-label {
+    width: 70%;
+}
+
+.food-select {
+    background-color: transparent;
+    font-size: 1em;
+    border: none;
+    background-color: white;
+    width: 50%;
+}
+
+.input-wrapper {
+  margin: .5em 0;
+}
+
+.rounded {
+  border-radius: .5em;
+}
+
+.submitBtn{
+  background-color: #f83600;
+  cursor: pointer;
+  color: white;
+  transition: all 300ms ease-out;
+}
+.submitBtn:hover {
+  background-color: #fe8c00;
+}
+
+.heading {
+  font-weight: 100;
+  margin: .2em 0;
+}
+
+.faded {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.upper-break {
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+
+/*
+  List Styles
+*/
+
+.list-container {
+}
+
+.entries-list {
+  margin: 0;
+  padding: 0;
+}
+
+.list-item {
+  list-style-type: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0,0,0,0.5);
+  padding: 0.2em 0;
+}
+
+.good {
+  background-color: #68D286;
+}
+.okay {
+  background-color: #FBAD2F;
+}
+.bad {
+  background-color: #EB585C;
+}
+
+.meal-content {
+  width: 45%;
+  max-width: 45%;
+}
+.entry-item {
+  margin: 0;
+  margin-right: 0.1em;
+  padding: 0 0.2em;
+}
+.icon {
+  font-size: 1.8em;
+  font-weight: 100;
+  transition: all 300ms ease-out;
+  cursor: pointer;
+  color: rgba(0,0,0,0.5);
+}
+.icon:hover {
+  color: black;
+}
+
+/*
+    Chart Styles
+*/
+
+.doughnutChart {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 1em;
+    max-width: 500px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: .5em;
+}

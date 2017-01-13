@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/ionicons.css">
+    <link rel="stylesheet" href="build/app.css">
+
+</head>
+<body>
+    <div class="container">
+
+      <canvas class="doughnutChart" id="doughnutChart" width="300" height="300"></canvas>
+
+      <h2 class="heading faded">New Entry</h2>
+      <form action="" name="food-entry" class="entry-form upper-break">
+        <p class="input-wrapper"><input name="foodTime" class="food-label rounded" type="text" placeholder="Time"/></p>
+        <p class="input-wrapper"><input name="foodMeal" class="food-label rounded"  type="text" placeholder="Food"/></p>
+        <p class="input-wrapper">
+          <select name="foodSelect" class="food-select rounded">
+            <option disabled selected value>How healthy was it?</option>
+            <option value="Good">Good</option>
+            <option value="Okay">Okay</option>
+            <option value="Bad">Bad</option>
+          </select>
+        </p>
+        <p class="input-wrapper"><button id="submit" class="rounded submitBtn" onclick="return false;">Add Entry</button></p>
+      </form>
+      <div class="list-container upper-break">
+        <h2 class="heading">Entries</h2>
+        <ul class="entries-list" id="entries">
+            <!--    This content will be created dynamically with javascript    -->
+        </ul>
+      </div>
+    </div>
+    <script src="assets/js/Chart.min.js"></script>
+    <script src="assets/js/doughnutChart.js"></script>
+    <script src="assets/js/entriesModule.js"></script>
+
+
+
+</body>
+</html>
