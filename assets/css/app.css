@@ -39,7 +39,12 @@ body {
 /*::-webkit-scrollbar-thumb {
     background: rgba(0,0,0,0.5);
 }*/
-
+.form-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.5em;
+}
 .entry-form {
   display: flex;
   flex-direction: column;
@@ -72,15 +77,22 @@ body {
 .rounded {
   border-radius: .5em;
 }
-
-.submitBtn{
+.blue {
+  background-color: #1DA1CD;
+}
+.blue:hover {
+  background-color: #222245;
+}
+.orange {
   background-color: #fe8c00;
+}
+.orange:hover {
+  background-color: #f83600
+}
+.submitBtn{
   cursor: pointer;
   color: white;
   transition: all 300ms ease-out;
-}
-.submitBtn:hover {
-  background-color: #f83600;
 }
 
 .heading {

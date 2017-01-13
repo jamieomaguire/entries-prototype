@@ -29,7 +29,7 @@ var doughnutChart = new Chart(CHART, {
         labels: ['Good', 'Okay', 'Bad'],
         datasets: [
             {
-                data: [`${storage.get["good"]}`,0,0],
+                data: [`${storage.get["good"]}`,`${storage.get["okay"]}`,`${storage.get["bad"]}`],
                 backgroundColor: [
                     '#68D286',
                     '#FBAD2F',
@@ -69,24 +69,51 @@ const form = document.forms["food-entry"];
 const submitBtn = document.getElementById('submit');
 const mealValue = form.elements["foodSelect"];
 const ul = document.getElementById('entries');
+const resetBtn = document.getElementById('reset');
 
 // data array
 var dataArray = doughnutChart.chart.config.data.datasets[0].data;
 
-if(localStorage['good'] || localStorage['okay'] || localStorage['bad']) {
+if(localStorage['good']){
     dataArray[0] = storage.get('good');
-    dataArray[1] = storage.get('okay');
-    dataArray[2] = storage.get('bad');
     doughnutChart.update();
 } else {
     dataArray[0] = 0;
-    dataArray[1] = 0;
-    dataArray[2] = 0;
+    doughnutChart.update();
 }
+
+if(localStorage['okay']) {
+    dataArray[1] = storage.get('okay');
+    doughnutChart.update();
+} else {
+    dataArray[1] = 0;
+    doughnutChart.update();
+}
+
+if(localStorage['bad']){
+    dataArray[2] = storage.get('bad');
+    doughnutChart.update();
+} else {
+    dataArray[2] = 0;
+    doughnutChart.update();
+}
+
+
+// clear localStorage
 
 // bind events
 submitBtn.addEventListener('click', submitValue);
 ul.addEventListener('click', deleteValue);
+resetBtn.addEventListener('click', clearStorage);
+
+function clearStorage(){
+    localStorage.clear();
+    dataArray[0] = 0;
+    dataArray[1] = 0;
+    dataArray[2] = 0;
+    doughnutChart.update();
+}
+
 
 // Increase the value depending on entry and update the chart
 function submitValue(){
@@ -103,7 +130,7 @@ function submitValue(){
             storage.set('good', number);
             dataArray[0] = number;
             doughnutChart.update();
-            console.log(localStorage['good']);
+            console.log('value of Good is ' + localStorage['good']);
             break;
         case 'Okay':
             // dataArray[1] += 100;
@@ -114,7 +141,7 @@ function submitValue(){
             storage.set('okay', number);
             dataArray[1] = number;
             doughnutChart.update();
-            console.log(localStorage['good']);
+            console.log('value of Okay is ' + localStorage['okay']);
             break;
         case 'Bad':
             // dataArray[2] += 100;
@@ -125,7 +152,7 @@ function submitValue(){
             storage.set('bad', number);
             dataArray[2] = number;
             doughnutChart.update();
-            console.log(localStorage['bad']);
+            console.log('value of Bad is ' + localStorage['bad']);
             break;
     }
 

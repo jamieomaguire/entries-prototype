@@ -12,7 +12,10 @@
 <body>
     <div class="container">
       <canvas class="doughnutChart" id="doughnutChart" width="300" height="300"></canvas>
-      <h2 class="heading faded">New Entry</h2>
+      <div class="form-heading">
+        <h2 class="heading faded">New Entry</h2>
+        <button id="reset" class="submitBtn blue rounded">Reset Data</button>
+      </div>
       <form name="food-entry" class="entry-form upper-break">
         <p class="input-wrapper"><input name="foodTime" class="food-label rounded" type="text" placeholder="Time"/></p>
         <p class="input-wrapper"><input name="foodMeal" class="food-label rounded"  type="text" placeholder="Food"/></p>
@@ -24,7 +27,7 @@
             <option value="Bad">Bad</option>
           </select>
         </p>
-        <p class="input-wrapper"><button id="submit" class="rounded submitBtn" onclick="return false;">Add Entry</button></p>
+        <p class="input-wrapper"><button id="submit" class="rounded submitBtn orange" onclick="return false;">Add Entry</button></p>
       </form>
       <section class="list-container upper-break">
         <h2 class="heading">Entries</h2>
