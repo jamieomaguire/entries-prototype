@@ -71,17 +71,17 @@ body {
 }
 
 .submitBtn{
-  background-color: #f83600;
+  background-color: #fe8c00;
   cursor: pointer;
   color: white;
   transition: all 300ms ease-out;
 }
 .submitBtn:hover {
-  background-color: #fe8c00;
+  background-color: #f83600;
 }
 
 .heading {
-  font-weight: 100;
+  font-weight: 400;
   margin: .2em 0;
 }
 
@@ -126,6 +126,12 @@ body {
   background-color: #EB585C;
 }
 
+.good, .okay, .bad {
+    border: 1px solid #fff;
+    width: 18%;
+    text-align: center;
+}
+
 .meal-content {
   width: 45%;
   max-width: 45%;
@@ -133,7 +139,9 @@ body {
 .entry-item {
   margin: 0;
   margin-right: 0.1em;
-  padding: 0 0.2em;
+  /*padding: 0 0.2em;*/
+  padding: 0.3em;
+  border-radius: 2px;
 }
 .icon {
   font-size: 1.8em;

@@ -1,7 +1,7 @@
 // Modular version
 var entriesModule = (function(){
 
-  var entries = [{time: '07:00', meal:'Egg fried rice', value: 'Good'}];
+  var entries = [];
 
   const ul = document.querySelector(".entries-list");
   const form = document.forms["food-entry"];
@@ -49,6 +49,7 @@ var entriesModule = (function(){
         className = '';
     }
 
+    // Using ES6 Template literals to structure the HTML
     var renderedTime = `<p class="entry-item">${time}</p>`;
     var renderedFood = `<p class="entry-item meal-content">${meal}</p>`;
     var renderedSelect = `<p class="entry-item ${className}">${value}</p>`;
