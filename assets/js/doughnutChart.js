@@ -1,18 +1,3 @@
-// localStorage helper function
-const storage = {
-    set: function(key, value) {
-        window.localStorage.setItem( key, JSON.stringify(value) );
-    },
-    get: function(key) {
-        try {
-            return JSON.parse( window.localStorage.getItem(key) );
-        } catch(e){
-            return null;
-        }
-    }
-}
-
-
 var CHART = document.getElementById('doughnutChart');
 
 Chart.defaults.global.defaultFontSize = 15;
@@ -98,20 +83,28 @@ if(localStorage['bad']){
     doughnutChart.update();
 }
 
-
-// clear localStorage
-
 // bind events
 submitBtn.addEventListener('click', submitValue);
 ul.addEventListener('click', deleteValue);
 resetBtn.addEventListener('click', clearStorage);
 
+// clear localStorage and remove all entries
 function clearStorage(){
-    localStorage.clear();
-    dataArray[0] = 0;
-    dataArray[1] = 0;
-    dataArray[2] = 0;
-    doughnutChart.update();
+    const timeCount = document.getElementById('timeCharCount');
+    const foodCount = document.getElementById('foodCharCount');
+    if(confirm('Do you want to reset your chart and delete all previous entries?')){
+        localStorage.clear();
+        dataArray[0] = 0;
+        dataArray[1] = 0;
+        dataArray[2] = 0;
+        doughnutChart.update();
+        form.reset();
+        timeCount.innerText = '';
+        foodCount.innerText = '';
+        while(ul.firstChild){
+            ul.removeChild(ul.firstChild);
+        }
+    }
 }
 
 

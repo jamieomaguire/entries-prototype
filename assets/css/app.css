@@ -9,15 +9,16 @@ html {
 body {
   background-image: linear-gradient(260deg, #fe8c00 0%, #f83600 100%);
   background-attachment: fixed;
-  font-family: 'helvetica neue', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
   margin: 50px auto;
-  min-height: 500px;
-  width: 350px;
+  min-height: 850px;
+  width: 500px;
+  border-radius: .5em;
   background-color: rgba(255, 255, 255, 0.5);
   padding: 1em;
   /*overflow-y: hidden;
@@ -50,6 +51,15 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
+.character-count{
+    flex: 1 1 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.warning {
+    color: #f83600;
+}
 
 .food-label, .food-select, button {
   padding: 0.5em;
@@ -58,7 +68,7 @@ body {
 }
 
 .food-label {
-    width: 70%;
+    flex: 2 1 60%;
 }
 
 .food-select {
@@ -72,6 +82,7 @@ body {
 
 .input-wrapper {
   margin: .5em 0;
+  display: flex;
 }
 
 .rounded {
@@ -93,6 +104,12 @@ body {
   cursor: pointer;
   color: white;
   transition: all 300ms ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.add:active {
+  transform: scale(1.1);
 }
 
 .heading {
@@ -169,6 +186,11 @@ body {
 }
 .icon:hover {
   color: black;
+}
+
+.icon-sm {
+    font-size: 1.2em;
+    margin-right: .2em;
 }
 
 /*

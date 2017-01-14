@@ -1,4 +1,3 @@
-// Modular version
 var entriesModule = (function(){
 
   var entries = [];
@@ -8,13 +7,17 @@ var entriesModule = (function(){
   const deleteBtn = document.querySelectorAll('.deleteBtn');
   const submit = document.getElementById('submit');
 
-  var entryTime = form.elements["foodTime"];
-  var entryFood = form.elements["foodMeal"];
-  var entryValue = form.elements["foodSelect"];
+  const entryTime = form.elements["foodTime"];
+  const entryFood = form.elements["foodMeal"];
+  const entryValue = form.elements["foodSelect"];
+  const timeCount = document.getElementById('timeCharCount');
+  const foodCount = document.getElementById('foodCharCount');
 
   // Bind events
   submit.addEventListener('click', addEntry);
   ul.addEventListener('click', deleteEntry);
+  entryTime.addEventListener('keydown', charCount);
+  entryFood.addEventListener('keydown', charCount);
 
   // Render all items already on list
   for (let i = 0; i < entries.length; i++){
@@ -32,6 +35,7 @@ var entriesModule = (function(){
     var li = document.createElement('li');
 
     li.classList.add('list-item');
+    li.setAttribute('data-id', time);
 
     var className = '';
 
@@ -69,14 +73,50 @@ var entriesModule = (function(){
     var entry = {time: addedTime, meal: addedMeal, value: addedValue};
 
     entries.push(entry);
+    storage.set(entry.time, entry);
+    timeCount.innerText = '';
+    foodCount.innerText = '';
     render(entry);
   }
 
   // Assign the event listener to the parent <ul> and delegate to the <i> tag
   function deleteEntry(el) {
     if(el.target && el.target.nodeName == "I"){
-      el.target.parentNode.parentNode.removeChild(el.target.parentNode);
+        // grab data attribute to delete entry from localStorage
+        const attributesArray = [].slice.call(el.target.parentNode.attributes);
+        const id = attributesArray[1].value;
+
+        // test localStorage for an entry matching the data-id
+        if (localStorage.hasOwnProperty(id)){
+            storage.delete(id);
+        }
+
+        // delete the node
+        el.target.parentNode.parentNode.removeChild(el.target.parentNode);
+        console.log(localStorage);
     }
+  }
+
+  function charCount(e){
+      const el = e.target;
+      const countType = el.parentNode.lastChild.id;
+      if (countType === 'timeCharCount'){
+          const limit = 5;
+          timeCount.innerText = limit - el.value.length -1;
+          if (timeCount.innerText == limit - limit) {
+              timeCount.classList.add('warning');
+          } else {
+              timeCount.classList.remove('warning');
+          }
+      } else if (countType === 'foodCharCount'){
+          const limit = 100;
+          foodCount.innerText = limit - el.value.length -1;
+          if (foodCount.innerText == limit - limit) {
+              foodCount.classList.add('warning');
+          } else {
+              foodCount.classList.remove('warning');
+          }
+      }
   }
 
 })();

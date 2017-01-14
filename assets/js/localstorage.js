@@ -9,5 +9,12 @@ const storage = {
         } catch(e){
             return null;
         }
+    },
+    delete: function(key){
+        try{
+            localStorage.removeItem(key);
+        } catch(e){
+            return null;
+        }
     }
 }

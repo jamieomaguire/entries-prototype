@@ -6,19 +6,20 @@
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/ionicons.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
     <link rel="stylesheet" href="build/app.css">
-
+    <script src="assets/js/localStorage.js"></script>
 </head>
 <body>
     <div class="container">
       <canvas class="doughnutChart" id="doughnutChart" width="300" height="300"></canvas>
       <div class="form-heading">
         <h2 class="heading faded">New Entry</h2>
-        <button id="reset" class="submitBtn blue rounded">Reset Data</button>
+        <button id="reset" class="submitBtn blue rounded"><i class="ion-ios-loop-strong icon-sm"></i> Reset Data</button>
       </div>
       <form name="food-entry" class="entry-form upper-break">
-        <p class="input-wrapper"><input name="foodTime" class="food-label rounded" type="text" placeholder="Time"/></p>
-        <p class="input-wrapper"><input name="foodMeal" class="food-label rounded"  type="text" placeholder="Food"/></p>
+        <p class="input-wrapper"><input name="foodTime" class="food-label rounded" type="text" placeholder="Time i.e 7:00"/><span class="character-count" id="timeCharCount"></span></p>
+        <p class="input-wrapper"><input name="foodMeal" class="food-label rounded"  type="text" placeholder="Food i.e Wholegrain toast with butter"/><span class="character-count" id="foodCharCount"></span></p>
         <p class="input-wrapper">
           <select name="foodSelect" class="food-select rounded">
             <option disabled selected value>How healthy was it?</option>
@@ -27,7 +28,7 @@
             <option value="Bad">Bad</option>
           </select>
         </p>
-        <p class="input-wrapper"><button id="submit" class="rounded submitBtn orange" onclick="return false;">Add Entry</button></p>
+        <p class="input-wrapper"><button id="submit" class="rounded submitBtn add orange" onclick="return false;"><i class="ion-plus-round icon-sm"></i> Add Entries</button></p>
       </form>
       <section class="list-container upper-break">
         <h2 class="heading">Entries</h2>
