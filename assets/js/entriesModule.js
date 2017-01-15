@@ -19,6 +19,68 @@ var entriesModule = (function(){
   entryTime.addEventListener('keydown', charCount);
   entryFood.addEventListener('keydown', charCount);
 
+  // Check if localStorage has any entries to render
+  // **** EXTREMELY MESSY CODE THAT MUST BE SORTED ****
+  if (Object.keys(localStorage)){
+
+      // create an array of the localStorage object keys
+      const array = [].slice.call(Object.keys(localStorage));
+      let entriesArray = [];
+
+      // Only keep the object keys that are an entry as opposed to a chart value
+      for (let i = 0; i < array.length; i++){
+          if (array[i] !== 'good' && array[i] !== 'okay' && array[i] !== 'bad'){
+              entriesArray.unshift(array[i]);
+          }
+      }
+
+      // loop over each array item and get the entry from localStorage so it becomes
+      // an object again
+      for (let i = 0; i < entriesArray.length; i++){
+          if (localStorage.hasOwnProperty(entriesArray[i])){
+              // render the stored entries
+              // **** THIS IS REPEATED CODE AND NEEDS TO BE ADDRESSED ****
+              const storedEntry = storage.get(entriesArray[i]);
+              const time = storedEntry.time;
+              const meal = storedEntry.meal;
+              const value = storedEntry.value;
+              console.log('time = ' + time + ' meal = ' + meal + ' value = ' + value);
+              var li = document.createElement('li');
+
+              li.classList.add('list-item');
+              li.setAttribute('data-id', time);
+
+              var className = '';
+
+              // Give the value a class depending on how healthy it is
+              switch(value){
+                case 'Good':
+                  className = 'good';
+                  break;
+                case 'Okay':
+                  className = 'okay';
+                  break;
+                case 'Bad':
+                  className = 'bad';
+                  break;
+                default:
+                  className = '';
+              }
+
+              // Using ES6 Template literals to structure the HTML
+              var renderedTime = `<p class="entry-item">${time}</p>`;
+              var renderedFood = `<p class="entry-item meal-content">${meal}</p>`;
+              var renderedSelect = `<p class="entry-item ${className}">${value}</p>`;
+              var renderedDelete = '<i class="icon ion-ios-close-outline"></i>';
+
+              li.innerHTML = renderedTime + renderedFood + renderedSelect + renderedDelete;
+              ul.appendChild(li);
+          }
+
+      }
+
+  }
+
   // Render all items already on list
   for (let i = 0; i < entries.length; i++){
     render(entries[i]);
