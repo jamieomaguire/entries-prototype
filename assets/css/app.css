@@ -7,22 +7,38 @@ html {
 }
 
 body {
-  background-image: linear-gradient(260deg, #fe8c00 0%, #f83600 100%);
+  background-image: linear-gradient(180deg, #2376ae 0%, #c16ecf 100%);
   background-attachment: fixed;
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
-  margin: 50px auto;
-  min-height: 850px;
-  width: 500px;
+  margin-top: 50px;
+  min-height: 900px;
+  width: 100%;
+  max-width: 600px;
   border-radius: .5em;
   background-color: rgba(255, 255, 255, 0.5);
-  padding: 1em;
-  /*overflow-y: hidden;
-  overflow-x: hidden;*/
+}
+
+@media (max-width: 650px){
+    .container {
+        margin: 0;
+        min-width: 100%;
+    }
+    body {
+        background-image: linear-gradient(260deg, blue 0%, purple 100%);
+    }
+}
+
+
+.inner-padded-wrapper {
+    padding: 1em;
 }
 /*.container:hover {
   overflow-y: scroll;
@@ -40,11 +56,13 @@ body {
 /*::-webkit-scrollbar-thumb {
     background: rgba(0,0,0,0.5);
 }*/
+
 .form-heading {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-bottom: 0.5em;
+
 }
 .entry-form {
   display: flex;
@@ -95,11 +113,15 @@ body {
   background-color: #222245;
 }
 .orange {
-  background-color: #fe8c00;
+  background-color: #FBAD2F;
 }
 .orange:hover {
-  background-color: #f83600
+  background-color: hsl(37, 96%, 45%);
 }
+
+
+
+
 .submitBtn{
   cursor: pointer;
   color: white;
@@ -199,10 +221,60 @@ body {
 
 .doughnutChart {
     width: 100%;
-    margin: 0 auto;
+    margin: auto;
     margin-bottom: 1em;
-    max-width: 500px;
-    height: 300px;
+    max-width: 550px;
     background-color: rgba(255, 255, 255, 0.1);
-    padding: .5em;
+}
+
+/*
+    Sticky Nav Styles
+*/
+
+.nav-wrapper {
+    position: relative;
+}
+/* Flex container */
+.icon-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+/* Flex Item */
+.icon-item {
+    list-style-type: none;
+    flex: 1 1 25%;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: all 300ms ease-out;
+}
+
+.icon-item:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0px -4px 0px #EB585C inset;
+    color: #666;
+}
+
+.nav-selected {
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0px -4px 0px #EB585C inset;
+}
+
+.icon-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    padding: 1em 0;
+}
+
+.icon-link:hover {
+    color: #333;
+}
+
+.nav-icon {
+    font-size: 2em;
 }
