@@ -39,42 +39,8 @@ var entriesModule = (function(){
       for (let i = 0; i < entriesArray.length; i++){
           if (localStorage.hasOwnProperty(entriesArray[i])){
               // render the stored entries
-              // **** THIS IS REPEATED CODE AND NEEDS TO BE ADDRESSED ****
               const storedEntry = storage.get(entriesArray[i]);
-              const time = storedEntry.time;
-              const meal = storedEntry.meal;
-              const value = storedEntry.value;
-            //   console.log('time = ' + time + ' meal = ' + meal + ' value = ' + value);
-              var li = document.createElement('li');
-
-              li.classList.add('list-item');
-              li.setAttribute('data-id', time);
-
-              var className = '';
-
-              // Give the value a class depending on how healthy it is
-              switch(value){
-                case 'Good':
-                  className = 'good';
-                  break;
-                case 'Okay':
-                  className = 'okay';
-                  break;
-                case 'Bad':
-                  className = 'bad';
-                  break;
-                default:
-                  className = '';
-              }
-
-              // Using ES6 Template literals to structure the HTML
-              var renderedTime = `<p class="entry-item">${time}</p>`;
-              var renderedFood = `<p class="entry-item meal-content">${meal}</p>`;
-              var renderedSelect = `<p class="entry-item ${className}">${value}</p>`;
-              var renderedDelete = '<i class="icon ion-ios-close-outline"></i>';
-
-              li.innerHTML = renderedTime + renderedFood + renderedSelect + renderedDelete;
-              ul.appendChild(li);
+              render(storedEntry);
           }
 
       }
