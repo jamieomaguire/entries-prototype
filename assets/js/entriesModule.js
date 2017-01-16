@@ -32,7 +32,14 @@ var entriesModule = (function(){
           if (array[i] !== 'good' && array[i] !== 'okay' && array[i] !== 'bad'){
               entriesArray.push(array[i]);
           }
+
       }
+
+      // Sort the array of entries by time by comparing to a Data object
+      // 2017/01/16 is an arbitrary date
+      entriesArray.sort(function (a, b) {
+        return new Date('2017/01/16 ' + a) - new Date('2017/01/16 ' + b);
+      });
 
       // loop over each array item and get the entry from localStorage so it becomes
       // an object again
