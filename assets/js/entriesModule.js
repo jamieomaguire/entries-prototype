@@ -30,7 +30,7 @@ var entriesModule = (function(){
       // Only keep the object keys that are an entry as opposed to a chart value
       for (let i = 0; i < array.length; i++){
           if (array[i] !== 'good' && array[i] !== 'okay' && array[i] !== 'bad'){
-              entriesArray.unshift(array[i]);
+              entriesArray.push(array[i]);
           }
       }
 
@@ -44,7 +44,7 @@ var entriesModule = (function(){
               const time = storedEntry.time;
               const meal = storedEntry.meal;
               const value = storedEntry.value;
-              console.log('time = ' + time + ' meal = ' + meal + ' value = ' + value);
+            //   console.log('time = ' + time + ' meal = ' + meal + ' value = ' + value);
               var li = document.createElement('li');
 
               li.classList.add('list-item');
