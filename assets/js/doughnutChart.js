@@ -161,12 +161,21 @@ function deleteValue(el){
 
         if(value.classList.contains('good')){
             dataArray[0] -= 100;
+            var newGood = storage.get('good');
+            newGood -= 100;
+            storage.set('good', newGood);
             doughnutChart.update();
         } else if(value.classList.contains('okay')){
             dataArray[1] -= 100;
+            var newOkay = storage.get('okay');
+            newOkay -= 100;
+            storage.set('okay', newOkay);
             doughnutChart.update();
         } else if(value.classList.contains('bad')){
             dataArray[2] -= 100;
+            var newBad = storage.get('bad');
+            newBad -= 100;
+            storage.set('bad', newBad);
             doughnutChart.update();
         }
     }

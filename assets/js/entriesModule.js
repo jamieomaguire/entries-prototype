@@ -20,7 +20,6 @@ var entriesModule = (function(){
   entryFood.addEventListener('keydown', charCount);
 
   // Check if localStorage has any entries to render
-  // **** EXTREMELY MESSY CODE THAT MUST BE SORTED ****
   if (Object.keys(localStorage)){
 
       // create an array of the localStorage object keys
